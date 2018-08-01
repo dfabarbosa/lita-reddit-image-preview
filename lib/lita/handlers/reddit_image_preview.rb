@@ -9,7 +9,7 @@ module Lita
       route %r{https://www.reddit.com/r/}i, :reddit_image_preview, command: true
 
       def reddit_image_preview(response)
-        html = open(response, 'User-Agent' => 'lita')
+        html = open(response[0], 'User-Agent' => 'lita')
         # puts html.read
         doc = Nokogiri::HTML(html.read)
         if doc.css('img.media-element')[0]
