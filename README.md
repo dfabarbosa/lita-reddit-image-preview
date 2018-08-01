@@ -1,6 +1,6 @@
 ## Usage
 
-    Lita: gustavo_santos
+    just insert a post from reddit to get a image preview
 
 ## License
 
