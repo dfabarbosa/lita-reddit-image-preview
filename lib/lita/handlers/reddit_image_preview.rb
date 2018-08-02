@@ -13,6 +13,12 @@ module Lita
         doc = Nokogiri::HTML(html.read)
         if doc.css('img.media-element').length > 0
           response.reply doc.css('img.media-element')[0].attr('src')
+        else
+          div = doc.css("div[data-test-id=post-content]")
+
+          if div.children[3].css("a")[0]
+          	response.reply div.children[3].css("a")[0].attr('href')
+          end
         end
       end
 
