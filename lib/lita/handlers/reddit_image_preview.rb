@@ -6,14 +6,12 @@ module Lita
   module Handlers
     class RedditImagePreview < Handler
 
-      route %r{https://www.reddit.com/r/}i, :reddit_image_preview, command: true
+      route %r{reddit.com/r/}i, :reddit_image_preview, command: false
 
       def reddit_image_preview(response)
-        html = open(response.args[0], 'User-Agent' => 'lita')
-        # puts html.read
+        html = open(response.message.body, 'User-Agent' => 'lita')
         doc = Nokogiri::HTML(html.read)
-        if doc.css('img.media-element')[0]
-          # puts doc.css('img.media-element')[0].attr('src')
+        if doc.css('img.media-element').length > 0
           response.reply doc.css('img.media-element')[0].attr('src')
         end
       end

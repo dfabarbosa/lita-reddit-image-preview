@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-reddit-image-preview"
-  spec.version       = "1.0.2"
+  spec.version       = "1.0.3"
   spec.authors       = ["Daniel"]
   spec.email         = ["dfabarbosa@gmail.com"]
   spec.description   = %q{A Lita handler to show the media image from one reddit post.}
